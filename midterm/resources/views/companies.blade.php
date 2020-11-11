@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-<a href={{route('employees.add')}}>Add new employee</a>
+<a href={{route('companies.add')}}>Add new companie</a>
 <table class="table" cellpadding="10" >
     <tr>
         <th>Name</th>
@@ -27,7 +27,7 @@
             </form>
         </td>
         <td>
-            <a href="">Edit</a>
+            <a href={{ route('companies.edit', ['id'=>$co->id])}}>Edit</a>
         </td>
         </tr>
     @endforeach

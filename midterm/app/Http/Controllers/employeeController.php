@@ -47,6 +47,6 @@ class employeeController extends Controller
             'personal_id' => $request->personal_id,
             'salary' => $request->salary,
         ]);
-        return redirect()->route('employee');
+        return redirect()->route('employees');
     }
 }

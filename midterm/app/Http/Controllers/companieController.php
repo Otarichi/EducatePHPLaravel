@@ -35,18 +35,17 @@ class companieController extends Controller
 
     public function edit_companie(Request $request){
         $companie = Companie::where('id', $request->id)->first();
-        
         return view('edit_companie')->with('companie', $companie);
     }
 
     public function update_companie(Request $request){
-        Car::where('id', $request->id)->update([
+        Companie::where('id', $request->id)->update([
             'name' => $request->name,
             'code' => $request->code,
             'address' => $request->address,
             'city' => $request->city,
             'country' => $request->country,
         ]);
-        return redirect()->route('companie');
+        return redirect()->route('companies');
     }
 }

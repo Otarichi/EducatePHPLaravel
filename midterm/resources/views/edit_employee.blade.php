@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-<form method="POST" action= {{ route('employees.edit'}} >
+<form method="POST" action= {{ route('employees.update')}} >
     @csrf
     <input type="hidden" value={{$employee->id}} name="id">
     <input type="text" name="name" value={{$employee->name}}>

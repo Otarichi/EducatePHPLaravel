@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-<form method="POST" action= {{ route('companies.insert'}} >
+<form method="POST" action= {{ route('companies.insert')}} >
     @csrf
     <input type="text" name="name" value="">
     <input type="number" name="code" value="">
