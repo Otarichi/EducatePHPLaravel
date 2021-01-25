@@ -18,7 +18,7 @@ class CreateCustomersContactInformationTable extends Migration
             $table->string('personal_id')->unique();
             $table->string('email')->unique();
             $table->integer('phone');
-            $table->string('address');
+            $table->string('address')->nullable();;
             $table->timestamps();
         });
     }

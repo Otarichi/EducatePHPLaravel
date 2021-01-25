@@ -2,7 +2,7 @@
 
 @section('content')
 
-<table class="table">
+<table class="table" id="customers_table">
     <thead class="thead-dark">
       <tr>
         <th scope="col">#</th>
@@ -27,16 +27,35 @@
                     class="btn btn-sm btn-success">Edit</a>
             </td> --}}
             <td>
-                <form method="POST"
-                    action="{{ route('customers.destroy', ['cusGenID' => $customer->id]) }}">
-                    @csrf
-                    @method('DELETE')
-                    <button class="btn btn-sm btn-danger">Delete</button>
-                </form>
+              <a href="{{ route('customers.edit', $customer->personal_id) }}"
+                class="btn btn-sm btn-success">Edit</a>
+            </td>
+            <td>
+                <button data-deleteurl="{{ route('customers.destroy', $customer->personal_id) }}"
+                  onclick="deleteCustomer(event)" class="btn btn-sm btn-danger">Delete</button>
             </td>
         </tr>
       @endforeach
     </tbody>
   </table>
+
+  <script>
+    function refreshCustomerTable() {
+        $("#customers_table").load(location.href + " #customers_table");
+    }
+
+    function deleteCustomer(e) {
+        e.preventDefault();
+
+        $.ajax({
+            url: $(e.target).data('deleteurl'),
+            type: 'DELETE',
+            success: function(data) {
+                refreshCustomerTable();
+            }
+        });
+    }
+
+</script>
   
   @endsection

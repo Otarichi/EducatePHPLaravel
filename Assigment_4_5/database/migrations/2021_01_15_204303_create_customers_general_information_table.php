@@ -17,8 +17,8 @@ class CreateCustomersGeneralInformationTable extends Migration
             $table->id();
             $table->string('personal_id')->unique();
             $table->string('name');
-            $table->string('surname');
-            $table->date('birth_date');
+            $table->string('surname')->nullable();;
+            $table->date('birth_date')->nullable();;
             $table->timestamps();
         });
     }
